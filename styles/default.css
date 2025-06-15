@@ -10,9 +10,9 @@ body {
     display: grid;
     grid-template-areas:
         "header header"
-        "menu content"
+        "content content"
         "footer footer";
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 9fr;
 }
 #header {
     grid-area: header;
@@ -24,6 +24,11 @@ body {
 #component {
     height: auto;
     grid-area: content;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 1em;
 }
 #component [id] {
   scroll-margin-top: 80px; /* Höhe deines sticky headers */
@@ -39,7 +44,7 @@ body {
     body {
         grid-template-areas:
             "header header"
-            "menu content"
+            "content content"
             "footer footer";
         grid-template-columns: 1fr 4.5fr;
     }
