@@ -1,10 +1,10 @@
 // Routing-Tabelle: definiert, welche Hashes eine Komponente laden
 const componentRoutes = {
-  start: './components/main.html',
-  about: './components/about.html',
-  kontakt: './components/kontakt.html',
-  impressum: './components/impressum.html',
-  datenschutz: './components/datenschutz.html'
+  start: 'components/main.html',
+  about: 'components/about.html',
+  kontakt: 'components/kontakt.html',
+  impressum: 'components/impressum.html',
+  datenschutz: 'components/datenschutz.html'
 };
 
 // Lädt HTML-Datei in Ziel-Container und triggert Event
@@ -47,15 +47,15 @@ function updateActiveNavLink() {
 }
 
 // Initiale Komponenten laden
-loadComponent('#header', './components/header.html');
-loadComponent('#aside', './components/aside.html', () => {
+loadComponent('#header', 'components/header.html');
+loadComponent('#aside', 'components/aside.html', () => {
     // Optionales Laden von aside.js hier
     if (typeof setupSidebarAutoClose === "function") {
         setupSidebarAutoClose();
     }
 });
 
-loadComponent('#footer', './components/footer.html');
+loadComponent('#footer', 'components/footer.html');
 
 // Wenn #component geladen wurde, Sidebar generieren (falls vorhanden)
 document.addEventListener("componentLoaded", () => {
