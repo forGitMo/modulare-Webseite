@@ -1,11 +1,223 @@
-<div>
-    <h1>Headline</h1>
-    <h2>test</h2>
-    <h3>test</h3>
+<div class="main-layout">
+    <div class="personal-info">
+        <div>
+            <img src="https://assets.codepen.io/4625037/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1594804399&width=512" alt="Profilbild von Moritz Amelang">
+        </div>
+        <div>
+            <h1>Moritz Amelang</h1>
+            <h2>Web/App Developer</h2>
+            <p>Leidenschaftlicher Entwickler mit Fokus auf moderne Webtechnologien, UX und App-Entwicklung.</p>
+            <p>
+                <a href="mailto:amelang.moritz@gmail.com">amelang.moritz@gmail.com</a> |
+                <a href="https://github.com/forGitMo" target="_blank">GitHub</a> |
+                <a href="https://codepen.io/forgitmo" target="_blank">Codepen</a>
+            </p>
+        </div>
+       
+    </div>
+    <div class="timeline">
+        
+       <h2>Mein Werdegang</h2>
+        <div class="timeline-container">
+            
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>2020 – Heute</h3>
+                    <p>App-Entwickler bei [Firmenname]. Fokus auf Frontend-Entwicklung, UX und moderne Webtechnologien.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>2017 – 2020</h3>
+                    <p>Fachinformatiker Anwendungsentwicklung – Ausbildung bei [Unternehmen / Schule].</p>
+                </div>
+            </div>
+
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>2014 – 2017</h3>
+                    <p>Berufskolleg / Gymnasium – Schwerpunkt IT & Mediengestaltung.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>2010 – 2014</h3>
+                    <p>Realschule – Interesse für Technik & Informatik entdeckt.</p>
+                </div>
+            </div>
+
+             <div class="timeline-item left">
+                <div class="content">
+                    <h3>2014 – 2017</h3>
+                    <p>Berufskolleg / Gymnasium – Schwerpunkt IT & Mediengestaltung.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>2010 – 2014</h3>
+                    <p>Realschule – Interesse für Technik & Informatik entdeckt.</p>
+                </div>
+            </div>
+
+             <div class="timeline-item left">
+                <div class="content">
+                    <h3>2014 – 2017</h3>
+                    <p>Berufskolleg / Gymnasium – Schwerpunkt IT & Mediengestaltung.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>2010 – 2014</h3>
+                    <p>Realschule – Interesse für Technik & Informatik entdeckt.</p>
+                </div>
+            </div>
+        </div> 
+    </div>
 </div>
 
 <style>
-    * {
-        color: whitesmoke;
-    }
+* {
+    color: whitesmoke;
+}
+.personal-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  text-align: left;
+  flex-wrap: wrap;
+  padding: 2em;
+  background-color: #1A1A1A;
+}
+.personal-info img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+}
+.timeline {
+  padding: 4em 1em;
+  max-width: 1000px;
+}
+
+.timeline h2 {
+  text-align: center;
+  margin-bottom: 2em;
+  font-size: 2rem;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 0;
+}
+
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: #555;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item .content {
+  background: #2A2A2A;
+  padding: 1em;
+  border-radius: 8px;
+  color: #fff;
+  box-shadow: 0 0 45px rgba(0,0,0,0.2);
+  position: relative;
+  display: inline-block;
+  min-width: 200px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 3px solid darkcyan;
+  border-radius: 50%;
+}
+
+.timeline-item.left::before {
+  right: -10px;
+}
+
+.timeline-item.right::before {
+  left: -10px;
+}
+
+@media screen and (max-width: 768px) {
+  .timeline-container::before {
+    left: 20px;
+  }
+  .timeline-item,
+  .timeline-item.left,
+  .timeline-item.right {
+    width: 100%;
+    left: 0;
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 10px;
+  }
+  .timeline-item.left::before,
+  .timeline-item.right::before {
+    left: 10px;
+    right: auto;
+  }
+}
 </style>
+
+<script>
+  document.addEventListener("componentLoaded", function(e) {
+    if (e.detail && e.detail.path && e.detail.path.endsWith("main.html")) {
+      // Nur für main.html initialisieren
+      const items = document.querySelectorAll('.timeline-item');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      items.forEach(item => observer.observe(item));
+    }
+  });
+</script>

@@ -6,7 +6,7 @@ body {
     all: unset;
     margin: 0;
     color-scheme: dark;
-    background-color: #1C1C1C;
+    background-color: #1A1A1A;
     display: grid;
     grid-template-areas:
         "header header"
@@ -22,7 +22,7 @@ body {
     grid-area: menu;
 }
 #component {
-    height: 100vh;
+    height: auto;
     grid-area: content;
 }
 #component [id] {
@@ -37,7 +37,7 @@ body {
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {
     body {
-        background-color: orange;
+        background-color: #2C2C2C;
         grid-template-areas:
             "header header"
             "menu content"
@@ -50,7 +50,7 @@ body {
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
     body {
-        background-color: red;
+        background-color: #2C2C2C;
         grid-template-areas:
             "header"
             "menu" 

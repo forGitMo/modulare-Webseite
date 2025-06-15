@@ -25,19 +25,49 @@ function generateSidebarFromComponent() {
     sidebar.innerHTML = ''; // Reset Sidebar
 
     const headings = component.querySelectorAll('h1, h2, h3');
+    let lastH2Li = null;
+    let lastH1Li = null;
 
     headings.forEach((heading, index) => {
         if (!heading.id) heading.id = `headline-${index}`;
 
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = `#${heading.id}`;
-        a.textContent = heading.textContent;
-        li.appendChild(a);
-        sidebar.appendChild(li);
+        if (heading.tagName === 'H1') {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = `#${heading.id}`;
+            a.textContent = heading.textContent;
+            li.appendChild(a);
+            sidebar.appendChild(li);
+            lastH1Li = li;
+            lastH2Li = null;
+        } else if (heading.tagName === 'H2') {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = `#${heading.id}`;
+            a.textContent = heading.textContent;
+            li.appendChild(a);
+            sidebar.appendChild(li);
+            lastH2Li = li;
+        } else if (heading.tagName === 'H3') {
+            // Füge h3 als Unterpunkt zum letzten h2 hinzu, sonst zu h1
+            const parentLi = lastH2Li || lastH1Li;
+            if (parentLi) {
+                let subUl = parentLi.querySelector('ul');
+                if (!subUl) {
+                    subUl = document.createElement('ul');
+                    subUl.classList.add('sidebar-submenu');
+                    parentLi.appendChild(subUl);
+                }
+                const subLi = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = `#${heading.id}`;
+                a.textContent = heading.textContent;
+                subLi.appendChild(a);
+                subUl.appendChild(subLi);
+            }
+        }
     });
 
-    // Nach dem Erzeugen der Links Auto-Close-Listener setzen
     setupSidebarAutoClose();
 }
 
