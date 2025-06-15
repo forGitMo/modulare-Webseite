@@ -1,19 +1,22 @@
 <div class="main-layout">
     <div class="personal-info">
-        <div>
-            <img src="https://assets.codepen.io/4625037/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1594804399&width=512" alt="Profilbild von Moritz Amelang">
-        </div>
-        <div>
+        <img src="https://assets.codepen.io/4625037/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1594804399&width=512" alt="Profilbild von Moritz Amelang">
+        <div class="personal-text">
             <h1>Moritz Amelang</h1>
             <h2>Web/App Developer</h2>
             <p>Leidenschaftlicher Entwickler mit Fokus auf moderne Webtechnologien, UX und App-Entwicklung.</p>
-            <p>
-                <a href="mailto:amelang.moritz@gmail.com">amelang.moritz@gmail.com</a> |
-                <a href="https://github.com/forGitMo" target="_blank">GitHub</a> |
-                <a href="https://codepen.io/forgitmo" target="_blank">Codepen</a>
-            </p>
-        </div>
-       
+            <ul class="contact-list">
+              <li><a href="mailto:amelang.moritz@gmail.com">amelang.moritz@gmail.com</a></li>
+              <li><a href="https://github.com/forGitMo" target="_blank">GitHub</a></li>
+              <li><a href="https://codepen.io/forgitmo" target="_blank">Codepen</a></li>
+            </ul>
+            <ul class="skills">
+              <li>JavaScript</li>
+              <li>React, Vue</li>
+              <li>Node.js, Express</li>
+              <li>UX/UI Design</li>
+            </ul>
+          </div>
     </div>
     <div class="timeline">
         
@@ -86,28 +89,71 @@
 .personal-info {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  flex-direction: row;
-  text-align: left;
-  flex-wrap: wrap;
-  padding: 2em;
-  background-color: #1A1A1A;
+  gap: 2em;
+  background: #23272f;
+  border-radius: 1em;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+  padding: 2em 2em 2em 2em;
+  margin: 2em auto 3em auto;
+  max-width: 700px;
 }
 .personal-info img {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  margin-right: 20px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.personal-text h1 {
+  margin: 0 0 0.2em 0;
+  font-size: 2rem;
+  color: #fff;
+}
+.personal-text h2 {
+  margin: 0 0 0.8em 0;
+  font-size: 1.2rem;
+  color: #00bcd4;
+}
+.personal-text p {
+  margin-bottom: 1em;
+  color: #ccc;
+}
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1.2em;
+}
+.contact-list a {
+  color: #00bcd4;
+  text-decoration: none;
+  font-weight: 500;
+}
+.contact-list a:hover {
+  text-decoration: underline;
+}
+.skills {
+  display: flex;
+  gap: 1em;
+  list-style: none;
+  padding: 0;
+  margin: 1em 0 0 0;
+  color: #00bcd4;
+  font-size: 0.95em;
 }
 .timeline {
-  padding: 4em 1em;
+  padding: 3em 0 2em 0;
+  margin: 0 auto 2em auto;
+  background: transparent;
   max-width: 1000px;
 }
 
 .timeline h2 {
-  text-align: center;
-  margin-bottom: 2em;
-  font-size: 2rem;
+  color: #00bcd4;
+  margin-bottom: 2.5em;
+  font-size: 2.2rem;
+  letter-spacing: 0.02em;
 }
 
 .timeline-container {
@@ -154,14 +200,20 @@
 }
 
 .timeline-item .content {
-  background: #2A2A2A;
-  padding: 1em;
-  border-radius: 8px;
+  background: #23272f;
   color: #fff;
-  box-shadow: 0 0 45px rgba(0,0,0,0.2);
+  border-radius: 0.7em;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+  padding: 1.2em 1.5em;
+  font-size: 1.05rem;
   position: relative;
   display: inline-block;
   min-width: 200px;
+}
+
+.timeline-item h3 {
+  color: #00bcd4;
+  margin-top: 0;
 }
 
 .timeline-item::before {
@@ -200,6 +252,18 @@
   .timeline-item.right::before {
     left: 10px;
     right: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .personal-info {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.2em;
+    gap: 1em;
+  }
+  .personal-info img {
+    margin-bottom: 1em;
   }
 }
 </style>
