@@ -1,0 +1,71 @@
+<header>
+  <nav>
+    <ul class="list">
+      <li><a href="#start">Start</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 0;
+    background-color: #1C1C1C;
+  }
+
+  header > nav > ul {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+  }
+
+  header > nav > ul > li {
+    margin: 0 20px;
+  }
+
+  header > nav > ul > li > a {
+    text-decoration: none;
+    color: whitesmoke;
+    transition: color 0.2s ease;
+    transition: all 0.2s ease;
+  }
+
+  header > nav > ul > li > a.active {
+    background-color: darkcyan ;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  header > nav > ul > li > a:hover {
+    color: darkcyan;
+  }
+  header > nav > ul > li > a.active:hover {
+    color: #ffffff;
+  }
+</style>
+
+<script>
+  function updateActiveNavLink() {
+  const currentHash = location.hash.replace(/^#/, '');
+  document.querySelectorAll('header nav a').forEach(a => {
+    const linkHash = (a.hash || a.getAttribute('href')).replace(/^#/, '');
+    a.classList.toggle('active', linkHash === currentHash);
+  });
+}
+
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!location.hash) {
+      history.replaceState(null, null, '#start');
+    }
+    updateActiveNavLink();
+  });
+
+  window.addEventListener('hashchange', updateActiveNavLink);
+</script>

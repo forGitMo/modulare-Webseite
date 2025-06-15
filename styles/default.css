@@ -1,0 +1,61 @@
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+body {
+    all: unset;
+    margin: 0;
+    color-scheme: dark;
+    background-color: #1C1C1C;
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "menu content"
+        "footer footer";
+    grid-template-columns: 1fr 4fr;
+}
+#header {
+    grid-area: header;
+    text-align: center;
+}
+#aside {
+    grid-area: menu;
+}
+#component {
+    height: 100vh;
+    grid-area: content;
+}
+#component [id] {
+  scroll-margin-top: 80px; /* Höhe deines sticky headers */
+}
+#footer {
+    grid-area: footer;
+}
+
+
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+    body {
+        background-color: orange;
+        grid-template-areas:
+            "header header"
+            "menu content"
+            "footer footer";
+        grid-template-columns: 1fr 2fr;
+    }
+    
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+    body {
+        background-color: red;
+        grid-template-areas:
+            "header"
+            "menu" 
+            "content"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+}

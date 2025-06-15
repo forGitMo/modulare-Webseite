@@ -1,0 +1,60 @@
+<nav>
+    <ul>
+        <li><a href="#impressum">Impressum</a></li>
+        <li><a href="#datenschutz">Datenschutz</a></li>
+    </ul>
+</nav>
+
+
+<style>
+    footer > nav {
+        position: sticky;
+        margin: 0;
+        background-color: #1C1C1C;
+    }
+    footer > nav > ul {
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        list-style: none;
+    }
+    footer > nav > ul > li {
+        margin: 0 20px;
+    }
+    footer > nav > ul > li > a {
+        text-decoration: none;
+        color: whitesmoke;
+    }
+    footer > nav > ul > li > a.active {
+        background-color: darkcyan ;
+        border-radius: 20px;
+        padding: 5px 10px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+    footer > nav > ul > li > a:hover {
+        color: darkcyan;
+    }
+    footer > nav > ul > li > a.active:hover {
+        color: #ffffff;
+    }
+</style>
+<script>
+  function updateActiveNavLink() {
+  const currentHash = location.hash.replace(/^#/, '');
+  document.querySelectorAll('footer nav a').forEach(a => {
+    const linkHash = (a.hash || a.getAttribute('href')).replace(/^#/, '');
+    a.classList.toggle('active', linkHash === currentHash);
+  });
+}
+
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!location.hash) {
+      history.replaceState(null, null, '#start');
+    }
+    updateActiveNavLink();
+  });
+
+  window.addEventListener('hashchange', updateActiveNavLink);
+</script>
